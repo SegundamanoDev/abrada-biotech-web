@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <header className={headerClasses}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+      <div className=" container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
         {/* --- Logo / Name (Links to Home) --- */}
         <Link
           to="/"

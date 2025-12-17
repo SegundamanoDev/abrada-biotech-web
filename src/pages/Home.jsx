@@ -18,24 +18,23 @@ const Home = () => {
 
           {/* --- Main Name/Headline (Large and Impactful) --- */}
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-slate-light mb-4">
-            Wellington.
+            Wellington Oluwasegun Akitikori.
           </h1>
 
-          {/* --- Secondary Role Headline (Expanded Focus) --- */}
+          {/* --- Secondary Role Headline (MERN Specialist focus) --- */}
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-slate-dark mb-8 leading-tight">
-            I build full-stack web solutions with{" "}
-            <span className="text-mint-accent">MERN and Laravel.</span>
+            I build production-ready{" "}
+            <span className="text-mint-accent">MERN Stack applications.</span>
           </h2>
 
-          {/* --- Short Value Proposition (Updated) --- */}
+          {/* --- Short Value Proposition (Aligned with Resume) --- */}
           <p className="text-slate-dark max-w-xl mb-12 text-lg">
-            I am a versatile Full Stack Developer specializing in creating
-            robust, scalable applications using{" "}
+            I am a Full Stack Developer specializing in creating robust,
+            scalable solutions with a strong focus on{" "}
             <span className="text-mint-accent">
-              React, Node.js, and PHP Laravel
+              authentication, transaction workflows, and secure REST APIs.
             </span>
-            . I build everything from secure REST APIs to high-performance
-            e-commerce platforms.
+            I transform complex concepts into high-performance web applications.
           </p>
 
           {/* --- Call to Action (CTA) Button --- */}
@@ -47,10 +46,9 @@ const Home = () => {
                                    transition duration-300 shadow-xl 
                                    hover:bg-mint-accent hover:text-navy-bg"
           >
-            View My Dual-Stack Projects
+            Check out my work!
           </Link>
 
-          {/* --- New: Social Proof Links --- */}
           <div className="mt-8">
             <SocialLinks direction="horizontal" />
           </div>

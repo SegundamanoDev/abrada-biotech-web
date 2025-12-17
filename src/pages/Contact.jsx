@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { FiSend } from "react-icons/fi";
 
-// Define the base URL for the contact API endpoint
-const API_URL = "https://portfolio-backend-1-sx2x.onrender.com/api/v1/contact";
-
-// "http://localhost:5000/api/v1/contact";
-
 const Contact = () => {
+  const formRef = useRef();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,38 +16,38 @@ const Contact = () => {
     text: "",
   });
 
-  // Handle form input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setResponseMessage({ type: "", text: "" }); // Clear previous messages
+    setResponseMessage({ type: "", text: "" });
+
+    const SERVICE_ID = "service_4znrnqu";
+    const TEMPLATE_ID = "template_hp2cicj";
+    const PUBLIC_KEY = "LnAjMHhO6eVzJze0S";
 
     try {
-      // Send the POST request to your Express API
-      const res = await axios.post(API_URL, formData);
+      await emailjs.sendForm(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        formRef.current,
+        PUBLIC_KEY
+      );
 
       setResponseMessage({
         type: "success",
-        text:
-          res.data.message ||
-          "Thank you! Your message has been sent successfully.",
+        text: "Thank you! Your message has been sent successfully.",
       });
-      // Clear the form after successful submission
+
+      // Clear the form fields
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      // Error handling from the backend (e.g., validation errors)
-      const errorMsg =
-        error.response?.data?.error ||
-        "An unexpected error occurred. Please try again later.";
-
+      console.error("EmailJS Error:", error);
       setResponseMessage({
         type: "error",
-        text: errorMsg,
+        text: "An unexpected error occurred. Please try again later.",
       });
     } finally {
       setLoading(false);
@@ -66,22 +63,20 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 sm:py-24">
       <div className="container mx-auto px-4 max-w-xl text-center">
-        {/* --- Section Title and Subtitle --- */}
         <h3 className="text-3xl font-bold text-slate-light mb-4">
           <span className="text-mint-accent font-mono mr-2">03.</span>
           Get In Touch
         </h3>
         <p className="text-slate-dark text-lg mb-12">
-          I am actively seeking new opportunities. Whether you have a project
+          I am actively seeking new opportunities Whether you have a project
           idea, a job offer, or just want to say hi, my inbox is always open.
         </p>
 
-        {/* --- Form --- */}
         <form
+          ref={formRef}
           onSubmit={handleSubmit}
           className="space-y-6 bg-sapphire-bg p-8 rounded-lg shadow-2xl"
         >
-          {/* Display Response Message */}
           {responseMessage.text && (
             <div
               className={`p-3 rounded-md text-center text-sm font-semibold ${
@@ -94,7 +89,6 @@ const Contact = () => {
             </div>
           )}
 
-          {/* Name Field */}
           <div>
             <label htmlFor="name" className={labelClasses}>
               Name
@@ -111,7 +105,6 @@ const Contact = () => {
             />
           </div>
 
-          {/* Email Field */}
           <div>
             <label htmlFor="email" className={labelClasses}>
               Email
@@ -128,7 +121,6 @@ const Contact = () => {
             />
           </div>
 
-          {/* Message Field */}
           <div>
             <label htmlFor="message" className={labelClasses}>
               Message
@@ -145,7 +137,6 @@ const Contact = () => {
             />
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={loading}
