@@ -26,7 +26,7 @@ const Navbar = () => {
                 ABRADA-BIOTECH
               </span>
               <span className="text-[8px] md:text-[9px] font-bold text-gray-400 tracking-[0.2em] uppercase">
-                Engineering Academy
+                ENGINEERING & VENTURES
               </span>
             </div>
           </Link>

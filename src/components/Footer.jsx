@@ -31,7 +31,7 @@ const Footer = () => {
                   ABRADA-BIOTECH
                 </h3>
                 <span className="text-[9px] font-bold text-[#FFD600] uppercase tracking-[0.2em] mt-1">
-                  Engineering Academy
+                  ENGINEERING & VENTURES
                 </span>
               </div>
             </Link>
