@@ -8,3 +8,6 @@
   --color-mint-accent: #64ffda;
   --color-slate-dark: #8892b0;
 }
+html {
+  scroll-behavior: smooth;
+}

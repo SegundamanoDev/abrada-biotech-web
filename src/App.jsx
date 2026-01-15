@@ -7,10 +7,12 @@ import Projects from "./pages/Projects";
 import Training from "./pages/Training";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen font-sans selection:bg-green-100">
         <Navbar />
 

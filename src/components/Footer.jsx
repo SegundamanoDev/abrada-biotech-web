@@ -95,12 +95,12 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <HiOutlinePhone className="text-[#FFD600] text-lg shrink-0" />
-                <span className="text-gray-400">08053311594</span>
+                <span className="text-gray-400">08053311594 • 08135700782</span>
               </li>
               <li className="flex items-center gap-3">
                 <HiOutlineMail className="text-[#FFD600] text-lg shrink-0" />
                 <span className="text-gray-400">
-                  abradabiotechengineering@gmail.com
+                  abradabiotechnology@gmail.com
                 </span>
               </li>
             </ul>

@@ -66,7 +66,7 @@ const Home = () => {
               <img
                 src="/digestor.jpg"
                 alt="Biodigester"
-                className="rounded-[3rem] shadow-2xl border-8 border-white w-full h-[500px] object-cover"
+                className="rounded-4xl lg:rounded-[3rem] shadow-2xl border-4 lg:border-8 border-white w-full h-auto max-h-[350px] md:max-h-[500px] object-contain bg-gray-50 lg:object-cover"
               />
               <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-[#1B4332] text-white p-6 rounded-3xl shadow-2xl flex items-center gap-6 min-w-[280px]">
                 <div className="text-center border-r border-white/20 pr-6">
@@ -192,7 +192,7 @@ const Home = () => {
               <img
                 src="/blueflame.jpg"
                 alt="Blue Flame proof"
-                className="w-full h-[600px] object-cover"
+                className="w-full h-auto min-h-[300px] max-h-[500px] object-contain md:object-cover"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex items-end p-12">
                 <div className="text-white">
@@ -280,8 +280,12 @@ const Home = () => {
                 </span>
                 in an anaerobic system."
               </p>
-              [Image of anaerobic digestion process diagram]
-              <p className="mb-6">
+              <img
+                src="/NQMY4461.JPG"
+                alt="Blue Flame proof"
+                className="w-full h-auto min-h-[300px] max-h-[500px] object-contain md:object-cover"
+              />
+              <p className="mb-6 mt-6">
                 "The end result was a{" "}
                 <span className="bg-green-100 px-2 text-[#1B4332] font-bold">
                   24-hour digestive system
