@@ -6,7 +6,6 @@ import {
   HiOutlinePhone,
   HiOutlineShieldCheck,
 } from "react-icons/hi";
-import { FaRegBuilding } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -16,18 +15,32 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Column 1: Brand & Credibility */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 text-[#FFD600]">
-              <FaRegBuilding className="text-xl" />
-              <h3 className="text-white text-xl font-black tracking-tighter">
-                ABRADA-BIOTECH
-              </h3>
-            </div>
+          {/* Column 1: Brand & Logo */}
+          <div className="space-y-6">
+            <Link to="/" className="flex items-center gap-3 group">
+              {/* Logo Icon Container */}
+              <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center p-2 group-hover:bg-[#FFD600]/20 transition-all duration-300">
+                <img
+                  src="/logo.png"
+                  alt="Abrada Logo"
+                  className="w-full h-full object-contain rounded-lg"
+                />
+              </div>
+              <div className="flex flex-col">
+                <h3 className="text-white text-xl font-black tracking-tighter leading-none">
+                  ABRADA-BIOTECH
+                </h3>
+                <span className="text-[9px] font-bold text-[#FFD600] uppercase tracking-[0.2em] mt-1">
+                  Engineering Academy
+                </span>
+              </div>
+            </Link>
+
             <p className="text-sm leading-relaxed text-gray-400">
               Leading Nigeria's shift to sustainable waste management through
               advanced anaerobic biotechnology. Turning waste into wealth.
             </p>
+
             <div className="pt-2">
               <span className="flex items-center gap-2 text-[10px] bg-green-900/30 text-green-400 px-3 py-1 rounded-full border border-green-800 font-bold uppercase tracking-widest w-fit">
                 <HiOutlineShieldCheck className="text-xs" />
@@ -99,7 +112,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <HiOutlineMail className="text-[#FFD600] text-lg shrink-0" />
-                <span className="text-gray-400">
+                <span className="text-gray-400 break-all">
                   abradabiotechnology@gmail.com
                 </span>
               </li>
@@ -133,7 +146,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.2em] font-bold text-gray-600">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.2em] font-bold text-gray-600 text-center md:text-left">
           <p>© {currentYear} Abrada-Biotech Enterprise. All Rights Reserved.</p>
           <p className="mt-4 md:mt-0">
             Engineered by{" "}
