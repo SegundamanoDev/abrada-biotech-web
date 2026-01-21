@@ -6,232 +6,257 @@ import {
   HiOutlineChartBar,
   HiOutlineShieldCheck,
   HiOutlineChip,
+  HiOutlineSparkles,
 } from "react-icons/hi";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const ProjectCard = ({
-    category,
-    title,
-    location,
-    description,
-    img,
-    specs,
-  }) => (
-    <div className="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
-      {/* Fixed Card Image Height */}
-      <div className="relative h-72 w-full overflow-hidden bg-gray-200">
-        <img
-          src={img}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute top-6 left-6 backdrop-blur-md bg-black/30 text-white text-[9px] font-black px-4 py-1.5 rounded-full border border-white/20 uppercase tracking-[0.2em]">
-          {category}
-        </div>
-      </div>
-
-      <div className="p-8 flex flex-col grow">
-        <div className="flex items-center text-[#1B4332] text-[10px] font-black mb-4 uppercase tracking-[0.2em]">
-          <HiOutlineLocationMarker className="text-lg mr-2 text-[#FFD600]" />
-          {location}
-        </div>
-        <h3 className="text-2xl font-black text-gray-900 mb-4 group-hover:text-[#1B4332] transition-colors leading-tight">
-          {title}
-        </h3>
-        <p className="text-gray-500 leading-relaxed text-sm font-medium mb-8 grow">
-          {description}
-        </p>
-
-        <div className="pt-6 border-t border-gray-50">
-          <button
-            onClick={() =>
-              setSelectedProject({ title, location, img, ...specs })
-            }
-            className="w-full bg-gray-50 group-hover:bg-[#FFD600] group-hover:text-[#1B4332] text-gray-400 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all flex items-center justify-center gap-2 cursor-pointer"
-          >
-            View Technical Specs
-            <HiOutlineArrowRight className="text-lg" />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+  const projects = [
+    {
+      id: 1,
+      category: "Industrial Power",
+      title: "Hybrid Fuel Bio-Reactor",
+      location: "Lagos State, Nigeria",
+      img: "/WhatsApp Image 2026-01-21 at 2.12.32 AM.jpeg",
+      description:
+        "A high-capacity subterranean installation engineered to generate consistent fuel for power generators and industrial-scale cooking gas.",
+      specs: {
+        efficiency: "Dual-Fuel Synergy",
+        systemType: "Fixed-Dome Reactor",
+        safetyGrade: "Industrial Reinforced",
+        lifespan: "35+ Years",
+        summary:
+          "This Lagos-based project features a high-volume anaerobic chamber designed to convert organic waste into methane at industrial pressures. The gas is scrubbed of impurities, making it safe for long-term use in modified generators.",
+      },
+    },
+    {
+      id: 2,
+      category: "Estate Solutions",
+      title: "Dual-Dome Waste-to-Energy System",
+      location: "Lagos State, Nigeria",
+      img: "/WhatsApp Image 2026-01-21 at 1.41.44 AM.jpeg",
+      description:
+        "A continuous-flow tandem system designed for high-occupancy residential estates to eliminate sewage evacuation and provide clean energy.",
+      specs: {
+        efficiency: "High-Pressure Output",
+        systemType: "Tandem Bio-Digester",
+        safetyGrade: "ASTM Concrete Standard",
+        lifespan: "30+ Years",
+        summary:
+          "This system utilizes a dual-dome architecture to maximize gas storage capacity. It is designed to handle heavy waste loads from multiple households, providing a permanent, odorless sewage solution.",
+      },
+    },
+    {
+      id: 3,
+      category: "Industrial Farm",
+      title: "Industrial Piggery Digester",
+      location: "Ogun State, Nigeria",
+      img: "/animal-waste-gas.jpg",
+      description:
+        "Specialized agricultural waste management system designed to eliminate farm odor and generate constant electricity from animal waste.",
+      specs: {
+        efficiency: "98.2% Biogas Purity",
+        systemType: "Agro-Waste Reactor",
+        safetyGrade: "H2S Scrubber Equipped",
+        lifespan: "25+ Years",
+        summary:
+          "This project solves the environmental challenge of piggery waste. By capturing methane from manure, the farm now generates its own electricity while producing high-quality organic fertilizer as a byproduct.",
+      },
+    },
+    {
+      id: 4,
+      category: "Residential Tech",
+      title: "Ologbo Household Bio-System",
+      location: "Ologbo, Edo State",
+      img: "/WhatsApp biogas ologbo.jpeg",
+      description:
+        "A precision-engineered family system focused on total waste control and sustainable energy independence for private residences.",
+      specs: {
+        efficiency: "99% Waste Digestion",
+        systemType: "Compact Bio-Digester",
+        safetyGrade: "Residential Certified",
+        lifespan: "25+ Years",
+        summary:
+          "Built specifically for a family setting, this system manages all household organic waste on-site. It produces zero-odor, high-utility biogas for the kitchen, removing the need for traditional septic pits.",
+      },
+    },
+  ];
 
   return (
-    <div className="bg-[#fcfcfc] min-h-screen pb-20">
-      {/* 1. Header Section */}
-      <div className="bg-[#1B4332] pt-32 pb-24 px-6 relative overflow-hidden">
+    <div className="bg-[#fcfcfc] min-h-screen pb-20 font-sans">
+      {/* 1. HERO HEADER */}
+      <section className="bg-[#1B4332] pt-32 pb-24 px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
         </div>
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <span className="text-[#FFD600] text-[10px] font-black tracking-[0.4em] uppercase mb-4 block">
-            Nationwide Portfolio
-          </span>
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter">
-            Engineering <span className="text-[#FFD600]">Impact.</span>
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 mb-6">
+            <HiOutlineSparkles className="text-[#FFD600]" />
+            <span className="text-white text-[9px] font-black tracking-[0.3em] uppercase">
+              Engineering Portfolio
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-8xl font-black text-white mb-6 tracking-tighter">
+            Real Works. <br />
+            <span className="text-[#FFD600]">Proven Results.</span>
           </h1>
-          <p className="text-green-100/80 text-lg max-w-2xl mx-auto leading-relaxed font-medium">
-            Deploying sustainable waste-to-energy systems across Nigeria's
-            industrial and residential sectors.
+          <p className="text-green-100/70 text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+            From industrial farms to private estates, we deploy advanced
+            biotechnology to solve Nigeria's energy challenges.
           </p>
         </div>
-      </div>
+      </section>
 
-      {/* 2. Grid */}
-      <div className="max-w-7xl mx-auto px-6 mt-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          <ProjectCard
-            category="Industrial"
-            title="Industrial Piggery Digester"
-            location="Ogun State, Nigeria"
-            img="/animal-waste-gas.jpg"
-            description="High-capacity system designed to manage animal waste runoff and convert it into constant electricity."
-            specs={{
-              efficiency: "98.2% Output",
-              systemType: "Anaerobic",
-              safetyGrade: "Industrial",
-              lifespan: "25+ Years",
-              summary:
-                "This installation utilizes high-purity micro-organism cultures to facilitate rapid waste breakdown. The system features a custom-built H2S scrubber for 100% odorless gas output.",
-            }}
-          />
-          {/* Add more cards as needed using the same props */}
+      {/* 2. PROJECT GRID */}
+      <section className="max-w-7xl mx-auto px-6 -mt-12 relative z-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="group bg-white rounded-[3rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col border border-gray-100"
+            >
+              <div className="relative h-96 w-full overflow-hidden">
+                <img
+                  src={project.img}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute top-6 left-6 bg-[#1B4332] text-[#FFD600] text-[9px] font-black px-4 py-2 rounded-xl uppercase tracking-widest">
+                  {project.category}
+                </div>
+              </div>
+
+              <div className="p-10 flex flex-col grow">
+                <div className="flex items-center text-[#1B4332] text-[10px] font-black mb-4 uppercase tracking-widest">
+                  <HiOutlineLocationMarker className="text-lg mr-2 text-[#FFD600]" />
+                  {project.location}
+                </div>
+                <h3 className="text-3xl font-black text-gray-900 mb-4 tracking-tight leading-tight">
+                  {project.title}
+                </h3>
+                <p className="text-gray-500 text-sm font-medium leading-relaxed mb-8 grow">
+                  {project.description}
+                </p>
+
+                <button
+                  onClick={() => setSelectedProject(project)}
+                  className="w-full bg-gray-50 text-gray-400 group-hover:bg-[#FFD600] group-hover:text-[#1B4332] py-5 rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3"
+                >
+                  View Technical Specs <HiOutlineArrowRight />
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
+      </section>
 
-      {/* 3. FIXED MODAL COMPONENT */}
+      {/* 3. TECHNICAL MODAL */}
       {selectedProject && (
-        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 md:p-6">
-          {/* Backdrop */}
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div
             className="absolute inset-0 bg-[#1B4332]/95 backdrop-blur-xl"
             onClick={() => setSelectedProject(null)}
           ></div>
-
-          {/* Modal Card */}
-          <div className="relative bg-white w-full max-w-5xl max-h-[90vh] rounded-4xl md:rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row animate-in fade-in zoom-in duration-300">
-            {/* Close Button - More visible */}
+          <div className="relative bg-white w-full max-w-5xl rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:row animate-in fade-in zoom-in duration-300 max-h-[90vh]">
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 md:top-8 md:right-8 z-50 bg-white/90 hover:bg-red-500 hover:text-white p-3 rounded-full shadow-lg transition-all"
+              className="absolute top-6 right-6 z-50 bg-white shadow-xl p-3 rounded-full hover:bg-red-500 hover:text-white transition-all"
             >
-              <HiX className="text-xl md:text-2xl" />
+              <HiX className="text-xl" />
             </button>
-
-            {/* FIXED MODAL IMAGE SECTION */}
-            <div className="w-full md:w-1/2 h-64 md:h-auto relative bg-gray-100">
+            <div className="w-full md:w-1/2 h-64 md:h-auto">
               <img
                 src={selectedProject.img}
                 className="w-full h-full object-cover"
-                alt="Technical View"
+                alt="Installation Detail"
               />
-              {/* Gradient overlay fixed to cover full image area */}
-              <div className="absolute inset-0 bg-linear-to-t from-[#1B4332] via-transparent to-transparent opacity-70"></div>
             </div>
+            <div className="w-full md:w-1/2 p-10 md:p-14 overflow-y-auto">
+              <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                Technical Report
+              </span>
+              <h2 className="text-4xl font-black text-[#1B4332] mt-2 mb-6 tracking-tighter">
+                {selectedProject.title}
+              </h2>
 
-            {/* MODAL CONTENT SECTION */}
-            <div className="w-full md:w-1/2 p-6 md:p-14 overflow-y-auto bg-white">
-              <div className="mb-8">
-                <span className="text-[#1B4332] text-[10px] font-black tracking-widest uppercase bg-green-50 px-3 py-1 rounded-md">
-                  Technical Documentation
-                </span>
-                <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-4 leading-tight">
-                  {selectedProject.title}
-                </h2>
-                <p className="text-gray-500 mt-3 flex items-center gap-2 font-bold text-sm">
-                  <HiOutlineLocationMarker className="text-[#FFD600] text-lg" />
-                  {selectedProject.location}
+              <div className="grid grid-cols-2 gap-4 mb-10">
+                {[
+                  {
+                    icon: <HiOutlineChartBar />,
+                    label: "Efficiency",
+                    val: selectedProject.specs.efficiency,
+                  },
+                  {
+                    icon: <HiOutlineChip />,
+                    label: "Architecture",
+                    val: selectedProject.specs.systemType,
+                  },
+                  {
+                    icon: <HiOutlineShieldCheck />,
+                    label: "Security",
+                    val: selectedProject.specs.safetyGrade,
+                  },
+                  {
+                    icon: <HiOutlineSparkles className="text-[#FFD600]" />,
+                    label: "Durability",
+                    val: selectedProject.specs.lifespan,
+                    dark: true,
+                  },
+                ].map((spec, i) => (
+                  <div
+                    key={i}
+                    className={`p-5 rounded-2xl ${spec.dark ? "bg-[#1B4332] text-white" : "bg-gray-50 border border-gray-100"}`}
+                  >
+                    <div
+                      className={`${spec.dark ? "text-[#FFD600]" : "text-[#1B4332]"} text-xl mb-2`}
+                    >
+                      {spec.icon}
+                    </div>
+                    <p
+                      className={`text-[8px] font-black uppercase tracking-widest ${spec.dark ? "text-white/40" : "text-gray-400"}`}
+                    >
+                      {spec.label}
+                    </p>
+                    <p className="text-sm font-black mt-1">{spec.val}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="border-l-4 border-[#FFD600] pl-6 py-2 mb-10">
+                <p className="text-gray-600 text-sm leading-relaxed italic">
+                  "{selectedProject.specs.summary}"
                 </p>
               </div>
 
-              {/* Specs Grid */}
-              <div className="grid grid-cols-2 gap-4 mb-10">
-                <div className="bg-gray-50 p-4 md:p-5 rounded-2xl border border-gray-100">
-                  <HiOutlineChartBar className="text-[#1B4332] text-xl mb-2" />
-                  <p className="text-[8px] font-black text-gray-400 uppercase tracking-widest">
-                    Efficiency
-                  </p>
-                  <p className="text-sm md:text-base font-black text-[#1B4332]">
-                    {selectedProject.efficiency}
-                  </p>
-                </div>
-                <div className="bg-gray-50 p-4 md:p-5 rounded-2xl border border-gray-100">
-                  <HiOutlineChip className="text-[#1B4332] text-xl mb-2" />
-                  <p className="text-[8px] font-black text-gray-400 uppercase tracking-widest">
-                    System
-                  </p>
-                  <p className="text-sm md:text-base font-black text-[#1B4332]">
-                    {selectedProject.systemType}
-                  </p>
-                </div>
-                <div className="bg-gray-50 p-4 md:p-5 rounded-2xl border border-gray-100">
-                  <HiOutlineShieldCheck className="text-[#1B4332] text-xl mb-2" />
-                  <p className="text-[8px] font-black text-gray-400 uppercase tracking-widest">
-                    Safety
-                  </p>
-                  <p className="text-sm md:text-base font-black text-[#1B4332]">
-                    {selectedProject.safetyGrade}
-                  </p>
-                </div>
-                <div className="bg-[#1B4332] p-4 md:p-5 rounded-2xl shadow-lg">
-                  <p className="text-[8px] font-black text-white/50 uppercase tracking-widest">
-                    Lifespan
-                  </p>
-                  <p className="text-sm md:text-base font-black text-[#FFD600]">
-                    {selectedProject.lifespan}
-                  </p>
-                </div>
-              </div>
-
-              {/* Engineering Summary */}
-              <div className="space-y-6">
-                <div className="border-l-4 border-[#FFD600] pl-4">
-                  <h4 className="font-black text-gray-900 uppercase text-xs tracking-widest mb-2">
-                    Engineering Summary
-                  </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {selectedProject.summary}
-                  </p>
-                </div>
-
-                <a
-                  href="https://wa.me/2348053311594"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-center bg-[#FFD600] text-[#1B4332] py-5 rounded-2xl font-black text-[11px] uppercase tracking-[0.2em] shadow-xl hover:shadow-[#FFD600]/20 hover:-translate-y-1 transition-all"
-                >
-                  Request Technical Blueprint
-                </a>
-              </div>
+              <a
+                href="https://wa.me/2348053311594"
+                className="block w-full text-center bg-[#FFD600] text-[#1B4332] py-6 rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl hover:-translate-y-1 transition-all"
+              >
+                Request Professional Survey
+              </a>
             </div>
           </div>
         </div>
       )}
 
-      {/* 4. CTA Banner */}
-      <div className="max-w-7xl mx-auto mt-32 px-6">
-        <div className="bg-[#1B4332] rounded-[3rem] p-10 md:p-20 flex flex-col lg:flex-row items-center justify-between shadow-2xl relative overflow-hidden">
-          <div className="text-white relative z-10 max-w-2xl text-center lg:text-left">
-            <h2 className="text-4xl md:text-5xl font-black leading-tight mb-6">
-              Need a Custom <br />
-              <span className="text-[#FFD600]">Farm Waste System?</span>
+      {/* 4. FINAL CTA SECTION */}
+      <section className="max-w-7xl mx-auto px-6 mt-32 mb-20">
+        <div className="bg-[#1B4332] rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden">
+          <div className="relative z-10">
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter">
+              Ready to Start Your <br />
+              <span className="text-[#FFD600]">Bio-Energy Project?</span>
             </h2>
-            <p className="text-green-100/70 font-medium text-lg">
-              Stop pollution and avoid environmental petitions today. Join the
-              biogas revolution.
-            </p>
+            <a
+              href="https://wa.me/2348053311594"
+              className="inline-block bg-[#FFD600] text-[#1B4332] px-12 py-5 rounded-2xl font-black text-[11px] uppercase tracking-[0.2em] hover:scale-105 transition-all"
+            >
+              Consult Our Engineers
+            </a>
           </div>
-          <a
-            href="https://wa.me/2348053311594"
-            className="mt-12 lg:mt-0 bg-[#FFD600] text-[#1B4332] px-14 py-6 rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-2xl"
-          >
-            BOOK SITE SURVEY
-          </a>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
